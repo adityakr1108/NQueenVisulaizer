@@ -1,0 +1,123 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #f7f8fa, #dde1e7);
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+label,
+input,
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    border: 2px solid #ccc;
+    padding: 5px;
+    width: 60px;
+    text-align: center;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#status {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.chessboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.chessboard {
+    display: grid;
+    gap: 2px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    width: max-content;
+}
+
+.chessboard div {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chessboard div.enlarged {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.black {
+    background-color: #444;
+}
+
+.white {
+    background-color: #fff;
+}
+
+.queen {
+    background-image: url("queen1.jpeg");
+    background-size: cover;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.traversing {
+    background-image: url("queen.jpeg");
+    background-size: cover;
+    opacity: 0.85;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
