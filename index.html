@@ -8,17 +8,12 @@
   </head>
   <body>
     <h1>N-Queen Visualizer</h1>
-    <div class="controls">
+    <div>
       <label for="board-size">Board Size: </label>
       <input type="number" id="board-size" value="5" min="4" max="20" />
       <button onclick="visualizeNQueen()">Visualize</button>
-      <button onclick="stepBack()">Step Back</button>
-      <button onclick="resetBoard()">Reset</button>
     </div>
-    <div id="status"></div>
-    <div class="chessboard-container">
-      <div class="chessboard" id="chessboard"></div>
-    </div>
+    <div class="chessboard" id="chessboard"></div>
     <script src="nqueen.js"></script>
     <script src="script.js"></script>
   </body>
