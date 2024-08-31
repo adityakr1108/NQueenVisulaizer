@@ -5,13 +5,16 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #bcbcbc;
+    background-color: #f0e6d6; /* A light beige background to complement the wooden theme */
 }
+
 h1 {
     font-family: "Arial", sans-serif;
-    color: #000;
+    color: #3b2f2f; /* Darker brown color */
     margin-bottom: 20px;
+    text-shadow: 1px 1px 2px #7a5c47;
 }
+
 label,
 input,
 button {
@@ -19,55 +22,68 @@ button {
     margin: 5px;
     padding: 5px;
 }
+
 label {
     font-size: 1.2em;
 }
+
 input {
     font-size: 1em;
     padding: 5px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #7a5c47; /* Darker brown border */
 }
+
 button {
     font-size: 1em;
     padding: 5px 10px;
-    background-color: #007bff;
+    background-color: #7a5c47; /* Darker brown button */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 button:hover {
-    background-color: #0056b3;
+    background-color: #5a3d30;
 }
+
 .chessboard {
     display: grid;
     margin-top: 20px;
     gap: 2px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Add a shadow to give a lifted look */
 }
+
 .chessboard div {
     width: 50px;
     height: 50px;
-    border-radius: 5px;
-    border: 1px solid #000;
+    border-radius: 3px;
     box-sizing: border-box;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .chessboard div.enlarged {
     transform: scale(1.2);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
 .black {
-    background-color: #000;
+    background-color: #8b5a2b; /* Darker wood tone */
+    background-image: url('https://www.transparenttextures.com/patterns/wood.png'); /* Add wood texture */
 }
+
 .white {
-    background-color: #ffffff;
+    background-color: #e6b98c; /* Lighter wood tone */
+    background-image: url('https://www.transparenttextures.com/patterns/wood.png'); /* Add wood texture */
 }
+
 .queen {
     background-image: url("queen1.jpeg");
     background-size: cover;
 }
+
 .traversing {
     background-image: url("queen.jpeg");
     background-size: cover;
