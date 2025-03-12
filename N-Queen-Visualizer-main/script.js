@@ -30,23 +30,54 @@ async function visualizeNQueen() {
 }
 
 async function solveNQ(N, chessboard) {
-  // Mocked solving process for demonstration
-  for (let i = 0; i < N; i++) {
-    for (let j = 0; j < N; j++) {
-      const index = i * N + j;
-      const square = chessboard.children[index];
+  const board = Array.from({ length: N }, () => Array(N).fill(false));
 
-      square.classList.add("traversing");
-      await new Promise((resolve) => setTimeout(resolve, 100));
-      square.classList.remove("traversing");
+  async function isSafe(board, row, col) {
+    // Check this row on left side
+    for (let i = 0; i < col; i++) {
+      if (board[row][i]) return false;
+    }
 
-      if (Math.random() > 0.7) { // Random placement for demonstration
+    // Check upper diagonal on left side
+    for (let i = row, j = col; i >= 0 && j >= 0; i--, j--) {
+      if (board[i][j]) return false;
+    }
+
+    // Check lower diagonal on left side
+    for (let i = row, j = col; j >= 0 && i < N; i++, j--) {
+      if (board[i][j]) return false;
+    }
+
+    return true;
+  }
+
+  async function solveNQUtil(board, col) {
+    if (col >= N) return true;
+
+    for (let i = 0; i < N; i++) {
+      if (await isSafe(board, i, col)) {
+        board[i][col] = true;
+        const index = i * N + col;
+        const square = chessboard.children[index];
         square.classList.add("queen");
-        solutionSteps.push(index); // Save the step
+        solutionSteps.push(index);
         currentStep++;
+
+        await new Promise((resolve) => setTimeout(resolve, 100));
+
+        if (await solveNQUtil(board, col + 1)) return true;
+
+        board[i][col] = false;
+        square.classList.remove("queen");
+        solutionSteps.pop();
+        currentStep--;
       }
     }
+
+    return false;
   }
+
+  await solveNQUtil(board, 0);
 }
 
 function resetBoard() {
